@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import './style.css';
 import Counter from './components/Counter';
 import Timer from './components/Timer';
@@ -11,17 +11,25 @@ import Home from './components/Home';
 import About from './components/About';
 import Contact from './components/Contact';
 import { useDispatch, useSelector } from 'react-redux';
+import { addData } from './redux/reducers/userReducer';
 
 export default function App() {
   const [user] = useState({ name: 'john', age: 30 });
   const [isOpen, setIsOpen] = useState(false);
   const userData = useSelector((data) => data?.userStore);
-
+  const dispatch=useDispatch()
   useEffect(() => {
     console.log('redux store data', userData);
+    console.log(userData)
   }, []);
+
+  const addAge=()=>{
+    dispatch(addData({age:30,city:'bangalore',country:'india'}))
+    console.log(userData)
+  }
   return (
     <React.Fragment>
+      <button onClick={addAge}>add age</button>
       {/* <Parent />
       <GrandGChild /> */}
       {/* <EnhancedGreet name={'john'} /> */}

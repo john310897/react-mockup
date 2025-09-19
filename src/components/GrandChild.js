@@ -1,4 +1,4 @@
-import React, { useContext, useContext, useState, useEffect } from 'react';
+import React, {useContext, useState, useEffect } from 'react';
 import { UserContext } from '../context/UserContext';
 const GrandChild = () => {
   const { user, setUser } = useContext(UserContext);
