@@ -10,3 +10,15 @@ p {
   height: 50%;
   background: blueviolet;
 }
+*{
+  background-color: black;
+  color: aliceblue;
+}
+.circle{
+  width: 100px;
+  height: 100px;
+  margin: 5px;
+  background-color: white;
+  border-radius: 100px;
+  cursor: pointer;
+}
