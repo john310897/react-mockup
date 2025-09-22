@@ -12,19 +12,25 @@ import About from './components/About';
 import Contact from './components/Contact';
 import { useDispatch, useSelector } from 'react-redux';
 import { addData } from './redux/reducers/userReducer';
+import { userDataStore } from './zustand/userStore';
+
 
 export default function App() {
   const [user] = useState({ name: 'john', age: 30 });
   const [isOpen, setIsOpen] = useState(false);
-  const userData = useSelector((data) => data?.userStore);
-  const dispatch=useDispatch()
+  // const userData = useSelector((data) => data?.userStore);
+  // const dispatch=useDispatch()
+  const userData=userDataStore(data=>data?.obj)
+
+  const updateZusStore=userDataStore(data=>data.addData)
   useEffect(() => {
     console.log('redux store data', userData);
     console.log(userData)
   }, []);
 
   const addAge=()=>{
-    dispatch(addData({age:30,city:'bangalore',country:'india'}))
+    // dispatch(addData({age:30,city:'bangalore',country:'india'}))
+    updateZusStore({city:'bangalore'})
     console.log(userData)
   }
   return (
